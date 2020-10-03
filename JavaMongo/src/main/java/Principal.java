@@ -36,7 +36,6 @@ public class Principal {
         collection.updateOne( Filters.eq( "nome", "Joao") ,
                 new Document("$set", new Document("nome","Joao Silva")));
 
-
         collection.deleteOne(Filters.eq("nome", "Joao"));
 
         mongoClient.close();

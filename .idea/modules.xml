@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Escola/Escola.iml" filepath="$PROJECT_DIR$/Escola/Escola.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaMongo/JavaMongo.iml" filepath="$PROJECT_DIR$/JavaMongo/JavaMongo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/javaMongoAlura.iml" filepath="$PROJECT_DIR$/.idea/javaMongoAlura.iml" />
     </modules>
