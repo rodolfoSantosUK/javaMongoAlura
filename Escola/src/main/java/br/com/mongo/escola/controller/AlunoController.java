@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 public class AlunoController {
@@ -36,6 +37,15 @@ public class AlunoController {
 
         return "salvar";
     }
+
+    @GetMapping("/aluno/listar")
+    public String listar() {
+
+        List<Aluno> alunos = alunoRepository.obterTodosAlunos();
+        alunos.forEach(System.out::println);
+        return "listar" ;
+    }
+
 
 
 }
