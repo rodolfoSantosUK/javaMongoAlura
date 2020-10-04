@@ -1,4 +1,4 @@
-package br.com.mongo.Escola.model;
+package br.com.mongo.escola.model;
 
 public class Habilidade {
 

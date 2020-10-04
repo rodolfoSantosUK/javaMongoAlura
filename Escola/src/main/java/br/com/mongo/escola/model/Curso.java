@@ -1,8 +1,12 @@
-package br.com.mongo.Escola.model;
+package br.com.mongo.escola.model;
 
 public class Curso {
 
     private String nome;
+
+    public Curso(String nome) {
+        this.nome = nome;
+    }
 
     public String getNome() {
         return nome;

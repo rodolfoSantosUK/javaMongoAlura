@@ -1,4 +1,4 @@
-package br.com.mongo.Escola;
+package br.com.mongo.escola;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

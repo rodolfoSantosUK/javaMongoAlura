@@ -1,4 +1,4 @@
-package br.com.mongo.Escola.model;
+package br.com.mongo.escola.model;
 
 import org.bson.types.ObjectId;
 
@@ -62,5 +62,10 @@ public class Aluno {
 
     public void setCurso(Curso curso) {
         this.curso = curso;
+    }
+
+    public Aluno criarId() {
+        setId(new ObjectId());
+        return this;
     }
 }
