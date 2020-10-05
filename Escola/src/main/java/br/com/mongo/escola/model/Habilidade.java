@@ -5,8 +5,17 @@ public class Habilidade {
     private String nome;
     private String nivel;
 
+    public Habilidade() {
+
+    }
+
     public String getNome() {
         return nome;
+    }
+
+    public Habilidade(String nome, String nivel) {
+        this.nome = nome;
+        this.nivel = nivel;
     }
 
     public void setNome(String nome) {

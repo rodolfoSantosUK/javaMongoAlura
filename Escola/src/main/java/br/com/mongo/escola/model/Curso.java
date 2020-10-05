@@ -8,6 +8,9 @@ public class Curso {
         this.nome = nome;
     }
 
+    public Curso() {
+    }
+
     public String getNome() {
         return nome;
     }
