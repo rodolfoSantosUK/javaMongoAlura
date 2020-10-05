@@ -35,10 +35,10 @@ public class AlunoRepository {
         MongoClient cliente = new MongoClient("localhost:27017", opcoes);
         MongoDatabase bancoDeDados = cliente.getDatabase("test");
         MongoCollection<Aluno> alunos = bancoDeDados.getCollection("alunos", Aluno.class);
-        if(aluno.getId() == null) {
+        if (aluno.getId() == null) {
             alunos.insertOne(aluno);
         } else {
-            alunos.updateOne(Filters.eq("nome", aluno.getNome()),new Document("$set",aluno) );
+            alunos.updateOne(Filters.eq("nome", aluno.getNome()), new Document("$set", aluno));
 
         }
         cliente.close();
@@ -87,6 +87,32 @@ public class AlunoRepository {
 
         Aluno aluno = alunos.find(Filters.eq("nome", nome)).first();
         return aluno;
+    }
+
+
+    public List<Aluno> obterListaAlunoPor(String nome) {
+
+        Codec<Document> codec = MongoClient.getDefaultCodecRegistry().get(Document.class);
+        AlunoCodec alunoCodec = new AlunoCodec(codec);
+
+        CodecRegistry registro = CodecRegistries.fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                CodecRegistries.fromCodecs(alunoCodec));
+
+        MongoClientOptions opcoes = MongoClientOptions.builder().codecRegistry(registro).build();
+
+        MongoClient cliente = new MongoClient("localhost:27017", opcoes);
+        MongoDatabase bancoDeDados = cliente.getDatabase("test");
+        MongoCollection<Aluno> alunosCollection = bancoDeDados.getCollection("alunos", Aluno.class);
+
+        MongoCursor<Aluno> resultados = alunosCollection.
+                find(Filters.eq("nome", nome), Aluno.class).
+                iterator();
+
+        List<Aluno> alunos = new ArrayList<Aluno>();
+        while (resultados.hasNext()) {
+            alunos.add(resultados.next());
+        }
+        return alunos;
     }
 
 
